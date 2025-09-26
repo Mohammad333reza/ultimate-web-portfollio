@@ -1,0 +1,200 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Inter",sans-serif;
+    transition-duration:200ms; /*slight hover affect, hover is until the curser is on the element, but
+    transition-duration is independent of curser & could be more or less*/
+
+}
+:root{   /*whatever is made inside the root could be accessible by all the elements*/
+     --primary-color: rgb(241 245 249);
+     --secondary-color:        rgb(234 179 8);
+         /*color may be made with ":root using rgb( , ,)" as well*/
+     --bg--color:rgb(20, 19, 19);
+}
+body{
+    background:var(--bg--color) ;
+    color: var(--primary-color);
+    /* background is the short form of background-color*/
+    min-height:100vh; /*vh:view height and 100 here reprsent 100% of view height       */
+    display:flex;
+    flex-direction:column;
+    gap:72px;
+    padding:14px;
+
+}
+.darkerText{
+    color:var(--secondary-color);
+}
+header, main, footer{
+    max-width:700px;
+    margin:0 auto;
+    width:100%;
+    
+}
+p{
+    font-size: 1.05em;
+}
+header{
+    display:flex;
+    align-items:center;
+/*So, align-items affect in the axis that is pependicular 
+to the main axis(that flex affects) */
+justify-content:space-between;
+/*ustify-content affects in the main axis(that flex affects) */
+gap:14px;
+}
+nav{
+    color:var(--secondary-color) ;
+    display:flex;
+    align-items:center;
+    gap:32px;
+}
+nav a{
+    cursor:pointer;
+    text-decoration:none;
+}
+nav a:hover{
+    opacity:0.7; /*opacity is btw 0 & 1; with decraesing opacity, the picture is fading*/
+}
+nav a:hover{
+    opacity:0.7;
+}
+main, section, .nameContainer{
+    display:flex;
+    flex-direction:column ;
+}
+main{
+    gap:64px;
+    padding-bottom:64px;
+}
+section{
+    gap:32px;
+
+}
+.nameContainer{
+    gap:8px
+}
+.statsContainer{  /*flex of ".statsContainer" only affect the direct children that is the first ".darkerText" before ".imageContainer"*/
+    display:flex;
+    align-items:stretch;
+    gap:24px;
+    flex-direction:column;
+}
+.imgContainer{
+    border-radius:10% ; 
+    max-height:114px; /*The width & height of the container must be the same*/
+    max-width: 114px;
+    overflow:hidden;
+}
+.imgContainer img{
+    /*border-radius:100%;*/
+    width:100%;
+    aspect-ratio: 1/1; /*the ratio of width to height*/
+    object-fit:cover ; /* it makes the picture bigger or smaller without changing the aspect-ratio*/
+}
+.stats {
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+.stats>div{ /*arrow:direct children, not children of children*/
+    flex:1;
+    display:flex;
+    align-items: center;
+    gap: 8px;
+}
+.stats div i{
+    font-size:1.04em;
+}
+.stats div div {
+    display:grid;
+    place-items: center;
+    min-width:40px;
+}
+.AboutMe{
+
+    line-height:1.5em;
+
+}
+.outreach{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    cursor:pointer;
+    width:fit-content; /*The CSS property width: fit-content; sets the width of an element to be as wide 
+                       as its content requires, not exceeding the space of its container.*/
+    margin-right:auto;
+    text-decoration: none;
+
+}
+.outreach:hover{
+    opacity:0.7;
+
+}
+.projectContainer{
+    display:flex;
+    flex-direction:column;
+    gap:32px;
+}
+.haederText{
+    margin-bottom:24px;
+
+}
+.projectItem{
+    display:flex;
+    align-items: stretch;
+    gap:24px;
+}
+.projectItem div:first-child{ /*first child represents first div tag inside the projectItem */
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+
+}
+.projectItem> div:last-child{
+    aspect-ratio:16/9;
+    max-width:30%;
+    overflow:hidden;
+}
+.projectItem> div:last-child img{
+    width:100%;
+    height:100%;
+    object-fit:cover; /* increasing or decreasing zoom*/
+    border-radius:8px;
+}
+.linkContainer{
+    display:flex;
+    align-items:center;
+    gap:24px;
+}
+.linkItem{
+    display:flex;
+    flex-direction:row !important;  /*SO, when important is written the command is executed without considering priority*/
+    align-items:center;
+    gap:14px !important;
+    color:var(--primary-color);
+    text-decoration:none ; /*no underline*/
+    cursor:pointer;
+}
+.linkItem:hover {
+    opacity:0.7;
+
+}
+.linkItem p{
+    font-size:0.9em;
+}
+@media (min-width: 640px){  /*@media give a condition to change the screen format*/
+    .statsContainer{
+        flex-direction:row;
+    }
+
+    .stats{
+        gap:0px;
+    }
+    .AboutMe{
+        width:80%; /* 80% of the width of the parent container*/
+        margin-right:auto;
+    }
+}
